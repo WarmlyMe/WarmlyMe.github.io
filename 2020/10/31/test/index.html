@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-next主题," />
 
 
 
@@ -83,15 +83,20 @@
 
 
 
-<meta name="description" content="胸中有丘壑，眼中有山河。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBlog">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="一直想要建立一个自己的博客网站，在这个周末正式实施了，通过两天的的部署大体的内容已经部署完毕，但在部署过程中遇到了一些问题，为此记录下给遇到相同问题的人一些参考。    关于next的主要配置问题可以查阅next文档来解决，这里写几个在文档中没有涉及到的问题。    1.菜单栏图标问题 ​    在官方文档中，菜单栏图标的配置是在字段__menu_icons__中的，但是在next版本的后续更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Next主题的一些配置问题">
+<meta property="og:url" content="http://example.com/2020/10/31/test/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="胸中有丘壑，眼中有山河。">
+<meta property="og:description" content="一直想要建立一个自己的博客网站，在这个周末正式实施了，通过两天的的部署大体的内容已经部署完毕，但在部署过程中遇到了一些问题，为此记录下给遇到相同问题的人一些参考。    关于next的主要配置问题可以查阅next文档来解决，这里写几个在文档中没有涉及到的问题。    1.菜单栏图标问题 ​    在官方文档中，菜单栏图标的配置是在字段__menu_icons__中的，但是在next版本的后续更">
 <meta property="og:locale">
+<meta property="og:image" content="c:/Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20201031233047301.png">
+<meta property="article:published_time" content="2020-10-31T14:04:40.000Z">
+<meta property="article:modified_time" content="2020-10-31T16:11:45.596Z">
 <meta property="article:author" content="热忱">
+<meta property="article:tag" content="-next主题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20201031233047301.png">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/"/>
+  <link rel="canonical" href="http://example.com/2020/10/31/test/"/>
 
 
 
 
 
-  <title>MyBlog</title>
+  <title>关于Next主题的一些配置问题 | MyBlog</title>
   
 
 
@@ -147,8 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -283,9 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/10/31/test/" itemprop="url">关于Next主题的一些配置问题</a></h1>
+          <h1 class="post-title" itemprop="name headline">关于Next主题的一些配置问题</h1>
         
 
         <div class="post-meta">
@@ -367,22 +369,42 @@
       
 
       
-        
-          
-            一直想要建立一个自己的博客网站，在这个周末正式实施了，通过两天的的部署大体的内容已经部署完毕，但在部署过程中遇到了一些问题，为此记录下给遇到相同问题的人一些参考。
+        <p>  一直想要建立一个自己的博客网站，在这个周末正式实施了，通过两天的的部署大体的内容已经部署完毕，但在部署过程中遇到了一些问题，为此记录下给遇到相同问题的人一些参考。</p>
+<hr>
+<p>  关于next的主要配置问题可以查阅<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">next文档</a>来解决，这里写几个在文档中没有涉及到的问题。</p>
+<p>   1.<strong>菜单栏图标问题</strong></p>
+<p>​    在官方文档中，菜单栏图标的配置是在字段__menu_icons__中的，但是在next版本的后续更新中，__menu_icons__字段仅仅用来控制是否允许显示图标，而对图标的选择则是在__menu__字段中。下方是在__主题配置文件__中对图标进行配置的实例。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/||</span> <span class="string">home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/||</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/||</span> <span class="string">tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/||</span> <span class="string">th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/||</span> <span class="string">archive</span></span><br></pre></td></tr></table></figure>
 
-  关于next的主要配置问题可以查阅next文档来解决，这里写几个在文档中没有涉及到的问题。
-   1.菜单栏图标问题
-​   
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/10/31/test/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p>注意的是在每个标签后面不能够留有空格，不然在菜单栏点击该栏目后链接中会出现一个%20导致前入指定页面发生错误。</p>
+<p>  2.<strong>侧边栏个人信息不显示</strong></p>
+<p>​    这个问题比较奇葩，相信遇到的人一定不多，毕竟我搜遍全网也没有找到解决的办法，最后还是通过扒源码才解决的。在官方文档中，关于配置__作者昵称__和__站点描述__说的是只需要编辑__站点配置文件__设置其中的author与description便能够正常显示。但是我发现我配置完成并不能正常显示，在一系列操作无果后就去查看layout源码，由此发现了一些问题来解决。</p>
+<p>  首先找到侧边栏布局文件的位置，该位置在</p>
+<blockquote>
+<p>\blog\themes\next\layout_macro</p>
+</blockquote>
+<p>找到其中的<font color=blue>sidebar.swig</font>便是侧边栏的布局文件，在此前，我发现在网站的底部我的用户名可以正常显示</p>
+<p><img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20201031233047301.png" alt="image-20201031233047301"></p>
+<p>于是在底部布局代码中找到该部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class&#x3D;&quot;author&quot; itemprop&#x3D;&quot;copyrightHolder&quot;&gt;&#123;&#123; theme.footer.copyright || config.author &#125;&#125;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着找到了侧边栏中的显示作者昵称的部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.avatar %&#125;</span><br><span class="line">            &lt;img class&#x3D;&quot;site-author-image&quot; itemprop&#x3D;&quot;image&quot;</span><br><span class="line">              src&#x3D;&quot;&#123;&#123; url_for( theme.avatar | default(theme.images + &#39;&#x2F;avatar.gif&#39;) ) &#125;&#125;&quot;</span><br><span class="line">              alt&#x3D;&quot;&#123;&#123; theme.author &#125;&#125;&quot; &#x2F;&gt;</span><br><span class="line">          &#123;% endif %&#125;</span><br><span class="line">            &lt;p class&#x3D;&quot;site-author-name&quot; itemprop&#x3D;&quot;name&quot;&gt;&#123;&#123; theme.author &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">            &lt;p class&#x3D;&quot;site-description motion-element&quot; itemprop&#x3D;&quot;description&quot;&gt;&#123;#</span><br><span class="line">          #&#125;&#123;% if theme.seo %&#125;&#123;#</span><br><span class="line">            #&#125;&#123;&#123; theme.signature &#125;&#125;&#123;#</span><br><span class="line">          #&#125;&#123;% else %&#125;&#123;#</span><br><span class="line">            #&#125;&#123;&#123; theme.description &#125;&#125;&#123;#</span><br><span class="line">          #&#125;&#123;% endif %&#125;&#123;#</span><br><span class="line">          #&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以发现在name和description中，其值是从theme中获取的，我将<code>theme</code>为<code>config</code>在侧边栏中，作者昵称可以正确显现</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;site-author-name&quot;</span> <span class="attr">itemprop</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123;&#123; config.author &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>站点介绍也是如此，只需要遇上修改后便能够正常显示。</p>
+<p>3.<strong>关于评论系统</strong></p>
+<p>​    一开始我使用的评论系统是韩国的__必力__，但是由于墙的缘故，挂了vpn还需要加载好久，因此我换成了LeanCloud，发现可以正常使用，配置的详细步骤如下:</p>
+<p>​    我们的评论系统其实是放在Leancloud上的，因此首先需要去注册一个账号 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://leancloud.cn/">点我注册</a></p>
+<p>1、 注册完以后需要创建一个应用，名字可以随便起，然后 进入应用-&gt;设置-&gt;应用key ,获取你的 <code>appid</code> 和 <code>appkey</code></p>
+<p>2、 打开主题配置文件 搜索 <code>valine</code>，填入<code>appid </code>和 <code>appkey</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="string">你的id</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="string">key</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier , https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br></pre></td></tr></table></figure>
+
+<p>2、在Leancloud -&gt; 设置 -&gt; 安全中心 -&gt; Web 安全域名 把你的域名加进去之后重启服务便能够正常显示。</p>
+<p>  暂时就想到这么多，剩余的东西以后再加吧😄😄😄</p>
+
       
     </div>
     
@@ -397,150 +419,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/30/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/myview.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/10/30/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-30T16:28:02+08:00">
-                2020-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/next%E4%B8%BB%E9%A2%98/" rel="tag"># -next主题</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/10/30/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/30/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/10/30/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/30/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -550,10 +458,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -561,6 +470,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -807,6 +723,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

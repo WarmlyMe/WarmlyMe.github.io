@@ -104,7 +104,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -288,9 +288,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/10/30/test/" itemprop="url">
+            <a class="post-title-link" href="/2020/10/31/test/" itemprop="url">
               
-                <span itemprop="name">未命名</span>
+                <span itemprop="name">关于Next主题的一些配置问题</span>
               
             </a>
         
@@ -298,9 +298,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-30T16:32:48+08:00"
-              content="2020-10-30" >
-          10-30
+              datetime="2020-10-31T22:04:40+08:00"
+              content="2020-10-31" >
+          10-31
         </time>
       </div>
 
@@ -412,7 +412,26 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+
+              </div>
             
 
           </nav>
@@ -628,6 +647,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'C6dsEQ1rmHj66V3BJTKiUMU7-gzGzoHsz',
+        appKey: 'rxiMQ9lfRoPWFeTwWDQfWDpv',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
