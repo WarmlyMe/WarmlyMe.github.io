@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>这是标签页 | Lifewritten</title>
+  <title>在jsp页面使用C标签c:forEach显示List | Lifewritten</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -180,111 +180,121 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/yunduo.png) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>胸中有丘壑，眼中有山河。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
+      
 <section id="intro">
     <div class="container">
         <div class="row col-md-offset-2">
             <div class="col-md-8">
-                <h1>这是标签页</h1>
+    			<span class="post-meta">
+      <time datetime="2020-11-29T15:16:40.000Z" itemprop="datePublished">
+          2020-11-29
+      </time>
+    
+</span>
+                <h1>在jsp页面使用C标签c:forEach显示List</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            
+      		<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>​    这两天在使用这个c标签中出现了一些问题，耗费了大量时间，特此记录。</p>
+<p>  首先，我们在使用这个标签时，需要先熟悉它的基本使用规则。</p>
+<blockquote>
+<p>&lt;c:forEach var=”name” items=”Collection” varStatus=”statusName” begin=”begin” end=”end” step=”step”&gt;</c:forEach></p>
+</blockquote>
+<p>items:你需要遍历的集合的名称</p>
+<p>var:自己取名,是集合中的一个元素</p>
+<p>varStatus:表示集合中每个元素的相关信息,有4种状态:index(所在位置，即索引).count(总共已迭代的次数).first(是否为第一个位置),last(是否为最后一个位置)</p>
+<p>begin:从第几个元素开始</p>
+<p>end:从第几个元素结束</p>
+<p>step:是一个一个循环还是跳跃着循环.</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>   在SpringMVC+Mybatis下通过Controller发送一个List至Jsp页面,通过C:forEach循环显示</p>
+<p>首先新建一个关于用户的实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@getter</span> <span class="meta">@setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserTable</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接着新建一个List,并向其中存入用户的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;UserTable&gt; <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;UserTable&gt;  list=<span class="keyword">new</span> ArrayList&lt;UserTable&gt;();      </span><br><span class="line">    UserTable re1=<span class="keyword">new</span> UserTable();  </span><br><span class="line">    re1.setId(<span class="number">111</span>);  </span><br><span class="line">    re1.setName(<span class="string">&quot;wp&quot;</span>);  </span><br><span class="line">    re1.setPassword(<span class="string">&quot;1111&quot;</span>);  </span><br><span class="line">       UserTable re2=<span class="keyword">new</span> UserTable();  </span><br><span class="line">    re2.setId(<span class="number">222</span>);  </span><br><span class="line">    re2.setName(<span class="string">&quot;qs&quot;</span>);  </span><br><span class="line">    re2.setPassword(<span class="string">&quot;2222&quot;</span>);  </span><br><span class="line">    list.add(re1); </span><br><span class="line">       list.add(re2);</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着在Controller中向Jsp页面发送这个数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">List&lt;UserTable&gt; info=showDao.show();</span><br><span class="line">model.addAttribute(<span class="string">&quot;info&quot;</span>,info);</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在Jsp中接收该数据,须在Jsp页面中添加该路径,同时需要在WEB-INF中的lib中加入<strong>jstl</strong>和<strong>standard</strong>架包才能顺利使用c标签</p>
+<blockquote>
+<p>&lt;%@taglib uri=”<a target="_blank" rel="noopener" href="http://java.sun.com/jsp/jstl/core&quot;">http://java.sun.com/jsp/jstl/core&quot;</a> prefix=”c” %&gt;</p>
+</blockquote>
+<p>经过上面的配置,就可以在jsp中显示list了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 输出结果集 --&gt;</span><br><span class="line">		                   &lt;c:forEach items=<span class="string">&quot;$&#123;info&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;t&quot;</span>&gt;  </span><br><span class="line">		                    &lt;tr&gt;</span><br><span class="line">                                 &lt;td&gt;<span class="xml"><span class="tag">&lt;<span class="name">c:out</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;t.id&#125;&quot;</span> /&gt;</span></span>&lt;/td&gt;</span><br><span class="line">		                   &lt;td&gt;<span class="xml"><span class="tag">&lt;<span class="name">c:out</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;t.name&#125;&quot;</span> /&gt;</span></span>&lt;/td&gt;</span><br><span class="line">						   &lt;td&gt;<span class="xml"><span class="tag">&lt;<span class="name">c:out</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;t.password&#125;&quot;</span> /&gt;</span></span>&lt;/td&gt;</span><br><span class="line">		                   &lt;td <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btns&quot;</span>&gt;</span><br><span class="line">		                                &lt;a href=<span class="string">&quot;changeview.jsp?id=$&#123;t.id&#125;&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn&quot;</span>&gt;修改&lt;/a&gt; </span><br><span class="line">										&lt;a href=<span class="string">&quot;deleteController?id=$&#123;t.id&#125;&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn&quot;</span>&gt;删除&lt;/a&gt;</span><br><span class="line">	</span><br><span class="line">		                            &lt;/td&gt;</span><br><span class="line">     </span><br><span class="line">                                   &lt;/tr&gt;</span><br><span class="line">                                  &lt;/c:forEach&gt;</span><br><span class="line">                              </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1>
             <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2020/10/31/test/">
+        关于Next主题的一些配置问题 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
-<section id="process">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-                <div class="timeline-centered">
-                    <div class="line"></div>
-                    <div class="present">Past</div>
-                    <div class="dot_tp"></div>
-                    <div class="born">Now</div>
-                    <div class="dot_bt"></div>
-                    
-                        <div class="timeline-entry">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
-                                    <span class="number">1</span>
-                                </div>
-                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
-                                    <p>2014/06/12-Start</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="timeline-entry">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
-                                    <span class="number">2</span>
-                                </div>
-                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
-                                    <p>2014/11/29-XXX</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="timeline-entry">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
-                                    <span class="number">3</span>
-                                </div>
-                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
-                                    <p>2015/02/18-DDD</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="timeline-entry">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
-                                    <span class="number">4</span>
-                                </div>
-                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
-                                    <p>More</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </div>
-                <!-- timeline-centered -->
-            </div>
-        </div>
-    </div>
-</section>
+
 
       
 <!-- ============================ Footer =========================== -->
